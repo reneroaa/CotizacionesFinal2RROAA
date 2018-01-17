@@ -16,12 +16,14 @@
                 <!--<label asp-for="PersonaRut" class="control-label"></label>-->
                 <p><b>Rut Cliente: </b></p>
                 <select asp-for="PersonaRut" class ="form-control" asp-items="ViewBag.PersonaRut"></select>
+                <br>
                 <p style="color:rgb(9, 168, 76)"><b>Crear nuevo cliente :</b></p> 
                 <input type="button" value="Agregar nuevo cliente" onclick="location='http://localhost:5000/Persona/Create'"/>
             </div>
-
+                <!--NOTA: agregat table-->
             <div class="form-group">
                 <!--<label asp-for="nombreCliente" class="control-label"></label>-->
+                <br>
                 <p><b>Nombre Cliente: </b></p>
                 <input placeholder="Ingrese nombre " asp-for="nombreCliente" class="form-control" />
                 <span asp-validation-for="nombreCliente" class="text-danger"></span>
