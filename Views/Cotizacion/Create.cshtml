@@ -12,37 +12,44 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="nombreCliente" class="control-label"></label>
+                <!--<label asp-for="nombreCliente" class="control-label"></label>-->
+                <p><b>Nombre: </b>Agregue nombre del cliente</p>
                 <input asp-for="nombreCliente" class="form-control" />
                 <span asp-validation-for="nombreCliente" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="descripcionCotizacion" class="control-label"></label>
+                <!--<label asp-for="descripcionCotizacion" class="control-label"></label>-->
+                <p><b>Descripción: </b>Agregue una descripción para la cotización</p>
                 <textarea asp-for="descripcionCotizacion" class="form-control" rows="2" ></textarea>
                 <span asp-validation-for="descripcionCotizacion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="valorCotizacion" class="control-label"></label>
+                <!--<label asp-for="valorCotizacion" class="control-label"></label>-->
+                <p><b>Valor: </b>Agregue valor de la cotizacion</p>
                 <input asp-for="valorCotizacion" class="form-control" />
                 <span asp-validation-for="valorCotizacion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="estadoCotizacion" class="control-label"></label>
+                <!--<label asp-for="estadoCotizacion" class="control-label"></label>-->
+                <p><b>Estado: </b>Agregue estado de la cotización</p>
                 <input asp-for="estadoCotizacion" class="form-control" />
                 <span asp-validation-for="estadoCotizacion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="fechaCotizacion" class="control-label"></label>
+                <!--<label asp-for="fechaCotizacion" class="control-label"></label>-->
+                <p><b>Fecha Cotización: </b>Agregue fecha de cotización</p>
                 <input asp-for="fechaCotizacion" class="form-control" />
                 <span asp-validation-for="fechaCotizacion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="fechaValidez" class="control-label"></label>
+                <!--<label asp-for="fechaValidez" class="control-label"></label>-->
+                <p><b>Fecha de validez: </b>Agregue fecha de expiración</p>
                 <input asp-for="fechaValidez" class="form-control" />
                 <span asp-validation-for="fechaValidez" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PersonaRut" class="control-label"></label>
+                <!--<label asp-for="PersonaRut" class="control-label"></label>-->
+                <p><b>Rut Cliente: </b>Seleccione RUT del cliente</p>
                 <select asp-for="PersonaRut" class ="form-control" asp-items="ViewBag.PersonaRut"></select>
             </div>
             <div class="form-group">
