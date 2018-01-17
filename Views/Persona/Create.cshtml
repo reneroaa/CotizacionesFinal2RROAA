@@ -10,11 +10,11 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <!--<label asp-for="Rut" class="control-label"></label>-->
-                <p><b>Rut cliente: </b></p>
+                <p><b>Rut cliente: </b> [ Formato: 12345678-9 sin guión ]</p>
                 <input type="text" id="rut" name="rut" required oninput="checkRut(this)" placeholder="Ingrese RUT" asp-for="Rut" class="form-control" />
                 <script src="~/js/validarRUT.js"></script>
                 <span asp-validation-for="Rut" class="text-danger"></span>
@@ -22,24 +22,31 @@
             <div class="form-group">
                 <!--<label asp-for="Nombre" class="control-label"></label>-->
                 <p><b>Nombre cliente: </b></p>
-                <input placeholder="Ingrese nombre" asp-for="Nombre" class="form-control" />
+                <input required placeholder="Ingrese nombre" asp-for="Nombre" class="form-control" />
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <!--<label asp-for="Paterno" class="control-label"></label>-->
                 <p><b>Apellido paterno: </b></p>
-                <input placeholder="Ingrese apellido paterno"asp-for="Paterno" class="form-control" />
+                <input required placeholder="Ingrese apellido paterno"asp-for="Paterno" class="form-control" />
                 <span asp-validation-for="Paterno" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <!--<label asp-for="Materno" class="control-label"></label>-->
                 <p><b>Apellido materno: </b></p>
-                <input placeholder="Ingrese apellido materno" asp-for="Materno" class="form-control" />
+                <input required placeholder="Ingrese apellido materno" asp-for="Materno" class="form-control" />
                 <span asp-validation-for="Materno" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Agregar nuevo cliente" class="btn btn-default" />
             </div>
+            <br/>
+            <br/>
+            <div class="form-group">
+                <p><b>¿Desea agregar una cotización?</b></p>
+                <input type="submit" value="Agregar Cotización" class="btn btn-default" onclick="location='http://localhost:5000/Cotizacion/Create'" />
+            </div>
+
         </form>
     </div>
 </div>
@@ -47,6 +54,7 @@
 <div>
     <a asp-action="Index">Volver a lista de clientes</a>
 </div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
