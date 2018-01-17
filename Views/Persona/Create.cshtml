@@ -5,6 +5,7 @@
 }
 
 <h2>Agregar nuevo cliente</h2>
+            
 
 <hr />
 <div class="row">
@@ -12,23 +13,27 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Rut" class="control-label"></label>
+                <!--<label asp-for="Rut" class="control-label"></label>-->
+                <p><b>Rut cliente: </b></p>
                 <input type="text" id="rut" name="rut" required oninput="checkRut(this)" placeholder="Ingrese RUT" asp-for="Rut" class="form-control" />
                 <script src="~/js/validarRUT.js"></script>
                 <span asp-validation-for="Rut" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
+                <!--<label asp-for="Nombre" class="control-label"></label>-->
+                <p><b>Nombre cliente: </b></p>
                 <input placeholder="Ingrese nombre" asp-for="Nombre" class="form-control" />
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Paterno" class="control-label"></label>
+                <!--<label asp-for="Paterno" class="control-label"></label>-->
+                <p><b>Apellido paterno: </b></p>
                 <input placeholder="Ingrese apellido paterno"asp-for="Paterno" class="form-control" />
                 <span asp-validation-for="Paterno" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Materno" class="control-label"></label>
+                <!--<label asp-for="Materno" class="control-label"></label>-->
+                <p><b>Apellido materno: </b></p>
                 <input placeholder="Ingrese apellido materno" asp-for="Materno" class="form-control" />
                 <span asp-validation-for="Materno" class="text-danger"></span>
             </div>
