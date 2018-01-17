@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Agregar cotización</h2>
+<h2>Agregar nueva cotización</h2>
 
 <hr />
 <div class="row">
@@ -18,7 +18,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="descripcionCotizacion" class="control-label"></label>
-                <input asp-for="descripcionCotizacion" class="form-control" />
+                <textarea asp-for="descripcionCotizacion" class="form-control" rows="2" ></textarea>
                 <span asp-validation-for="descripcionCotizacion" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -46,7 +46,7 @@
                 <select asp-for="PersonaRut" class ="form-control" asp-items="ViewBag.PersonaRut"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Agregar cotización" class="btn btn-default" />
+                <input type="submit" value="Crear nueva cotización" class="btn btn-default" />
             </div>
         </form>
     </div>
