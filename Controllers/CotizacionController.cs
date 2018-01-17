@@ -69,6 +69,12 @@ namespace Cotizaciones.Controllers
             return View(cotizacion);
         }
 
+        //Metodo para dirigir desde cotización a vista PreCreate y elegir tipo de cliente [nuevo o antiguo en el sistema]
+        public IActionResult PreCreate(){
+            //var cotizacionesContext = _context.Cotizacion.Include(c => c.persona);
+            return View();
+        }
+
         // GET: Cotizacion/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
