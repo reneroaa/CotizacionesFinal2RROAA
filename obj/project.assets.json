@@ -13131,11 +13131,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\GitHub\\CotizacionesFinal2RROAA\\Cotizaciones.csproj",
+      "projectUniqueName": "C:\\GitHub\\CotizacionesFinal2RROAA\\Cotizaciones.csproj",
       "projectName": "Cotizaciones",
-      "projectPath": "c:\\GitHub\\CotizacionesFinal2RROAA\\Cotizaciones.csproj",
+      "projectPath": "C:\\GitHub\\CotizacionesFinal2RROAA\\Cotizaciones.csproj",
       "packagesPath": "C:\\Users\\René\\.nuget\\packages\\",
-      "outputPath": "c:\\GitHub\\CotizacionesFinal2RROAA\\obj\\",
+      "outputPath": "C:\\GitHub\\CotizacionesFinal2RROAA\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

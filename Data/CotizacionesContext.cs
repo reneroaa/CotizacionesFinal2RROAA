@@ -1,6 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Cotizaciones.Models;
 
+
+
+
 namespace Cotizaciones.Data {
     public class CotizacionesContext : DbContext
     {
@@ -15,6 +18,13 @@ namespace Cotizaciones.Data {
         }
 
         public DbSet<Persona> Personas { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Persona>().HasKey(x => x.Rut);
+            base.OnModelCreating(modelBuilder);
+        }
 
     }
 }
