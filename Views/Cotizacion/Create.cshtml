@@ -16,7 +16,8 @@
                 <!--<label asp-for="PersonaRut" class="control-label"></label>-->
                 <p><b>Rut Cliente: </b></p>
                 <select asp-for="PersonaRut" class ="form-control" asp-items="ViewBag.PersonaRut"></select>
-                <p style="color:red">Crear nuevo cliente :</p> <input value="Crear nuevo cliente" class="btn btn-default" asp-action="Index" />
+                <p style="color:rgb(9, 168, 76)"><b>Crear nuevo cliente :</b></p> 
+                <input type="button" value="Agregar nuevo cliente" onclick="location='http://localhost:5000/Persona/Create'"/>
             </div>
 
             <div class="form-group">
