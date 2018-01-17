@@ -19,6 +19,8 @@ namespace Cotizaciones.Data {
 
         public DbSet<Persona> Personas { get; set; }
 
+        public DbSet<Cotizacion> Cotizaciones { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
