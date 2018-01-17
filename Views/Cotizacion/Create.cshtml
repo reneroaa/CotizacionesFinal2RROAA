@@ -13,55 +13,55 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <!--<label asp-for="nombreCliente" class="control-label"></label>-->
-                <p><b>Nombre: </b>Agregue nombre del cliente</p>
-                <input asp-for="nombreCliente" class="form-control" />
+                <p><b>Nombre Cliente: </b></p>
+                <input placeholder="Ingrese nombre " asp-for="nombreCliente" class="form-control" />
                 <span asp-validation-for="nombreCliente" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <!--<label asp-for="descripcionCotizacion" class="control-label"></label>-->
-                <p><b>Descripción: </b>Agregue una descripción para la cotización</p>
-                <textarea asp-for="descripcionCotizacion" class="form-control" rows="2" ></textarea>
+                <p><b>Descripción de cotización: </b></p>
+                <textarea placeholder="Ingrese descripción" asp-for="descripcionCotizacion" class="form-control" rows="2" ></textarea>
                 <span asp-validation-for="descripcionCotizacion" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <!--<label asp-for="valorCotizacion" class="control-label"></label>-->
-                <p><b>Valor: </b>Agregue valor de la cotizacion</p>
-                <input asp-for="valorCotizacion" class="form-control" />
+                <p><b>Valor cotización: </b></p>
+                <input placeholder="Ingrese valor" asp-for="valorCotizacion" class="form-control" />
                 <span asp-validation-for="valorCotizacion" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <!--<label asp-for="estadoCotizacion" class="control-label"></label>-->
-                <p><b>Estado: </b>Agregue estado de la cotización</p>
-                <input asp-for="estadoCotizacion" class="form-control" />
+                <p><b>Estado cotización: </b></p>
+                <input placeholder="Ingrese estado" asp-for="estadoCotizacion" class="form-control" />
                 <span asp-validation-for="estadoCotizacion" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <!--<label asp-for="fechaCotizacion" class="control-label"></label>-->
-                <p><b>Fecha Cotización: </b>Agregue fecha de cotización</p>
+                <p><b>Fecha Cotización: </b></p>
                 <input asp-for="fechaCotizacion" class="form-control" />
                 <span asp-validation-for="fechaCotizacion" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <!--<label asp-for="fechaValidez" class="control-label"></label>-->
-                <p><b>Fecha de validez: </b>Agregue fecha de expiración</p>
+                <p><b>Fecha de expiración: </b></p>
                 <input asp-for="fechaValidez" class="form-control" />
                 <span asp-validation-for="fechaValidez" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <!--<label asp-for="PersonaRut" class="control-label"></label>-->
-                <p><b>Rut Cliente: </b>Seleccione RUT del cliente</p>
+                <p><b>Rut Cliente: </b></p>
                 <select asp-for="PersonaRut" class ="form-control" asp-items="ViewBag.PersonaRut"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Crear nueva cotización" class="btn btn-default" />
+                <input type="submit" value="Crear nueva cotización" class="btn btn-default" />  |  <a asp-action="Index">Volver a lista </a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
+<!--<div>
     <a asp-action="Index">Volver a lista de cotizaciones</a>
-</div>
+</div>-->
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
