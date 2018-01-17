@@ -26,5 +26,8 @@ namespace Cotizaciones.Data {
             base.OnModelCreating(modelBuilder);
         }
 
+
+        public DbSet<Cotizaciones.Models.Cotizacion> Cotizacion { get; set; }
+
     }
 }
