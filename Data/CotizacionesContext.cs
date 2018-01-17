@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Cotizaciones.Models;
-
-
-
+using System;
+using System.Data;
+using System.Linq;
 
 namespace Cotizaciones.Data {
     public class CotizacionesContext : DbContext
@@ -16,7 +16,6 @@ namespace Cotizaciones.Data {
             // Utilizacion de SQLite como backend
             optionsBuilder.UseSqlite("Data Source=cotizaciones.db");
         }
-
         public DbSet<Persona> Personas { get; set; }
 
         public DbSet<Cotizacion> Cotizaciones { get; set; }
@@ -27,7 +26,6 @@ namespace Cotizaciones.Data {
             modelBuilder.Entity<Persona>().HasKey(x => x.Rut);
             base.OnModelCreating(modelBuilder);
         }
-
 
         public DbSet<Cotizaciones.Models.Cotizacion> Cotizacion { get; set; }
 
