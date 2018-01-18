@@ -56,13 +56,31 @@ namespace Cotizaciones.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Rut,Nombre,Paterno,Materno")] Persona persona)
         {
-            if (ModelState.IsValid)
+
+            var listaPersona = _context.Personas.Where(m => m.Rut == persona.Rut);
+
+            if(listaPersona == null){
+                return NotFound();
+            }else
             {
-                _context.Add(persona);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                int cant = listaPersona.Count();
+                if (listaPersona.Count() == 0)
+                {
+                    if (ModelState.IsValid)
+                        {
+                            _context.Add(persona);
+                            await _context.SaveChangesAsync();
+                            return RedirectToAction(nameof(Index));
+                     }
+                    return View(persona);
+                }else{      
+                    //agregar popup de rut ya existe!             
+                    return RedirectToAction(nameof(Create));
             }
-            return View(persona);
+
+            }
+
+
         }
 
         // GET: Persona/Edit/5
@@ -149,5 +167,6 @@ namespace Cotizaciones.Controllers
         {
             return _context.Personas.Any(e => e.Rut == id);
         }
+
     }
 }
