@@ -13,9 +13,6 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
-              
-                <!--<p style="color:rgb(9, 168, 76)"><b>Crear nuevo cliente :</b></p> 
-                <input type="button" value="Agregar nuevo cliente" onclick="location='http://localhost:5000/Persona/Create'"/>-->
                 <!--<label asp-for="PersonaRut" class="control-label"></label>-->
                 <p><b>Rut cliente: </b></p>
                 <select asp-for="PersonaRut" class ="form-control" asp-items="ViewBag.PersonaRut">
@@ -42,12 +39,23 @@
                 <input placeholder="Ingrese valor" asp-for="valorCotizacion" class="form-control" />
                 <span asp-validation-for="valorCotizacion" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <!--<label asp-for="estadoCotizacion" class="control-label"></label>-->
+            <!--<div class="form-group">
+                <label asp-for="estadoCotizacion" class="control-label"></label>
                 <p><b>Estado cotización: </b></p>
                 <input placeholder="Ingrese estado" asp-for="estadoCotizacion" class="form-control" />
                 <span asp-validation-for="estadoCotizacion" class="text-danger"></span>
+            </div>-->
+
+            <div class="form-group">
+                <p><b>Estado cotización: </b></p>
+                <select class ="form-control" asp-for="estadoCotizacion">
+                    <!--<option>Seleccione un estado</option>-->
+                    <option>En proceso</option>
+                    <option>Finalizada</option>
+                </select>
+                <span asp-validation-for="estadoCotizacion" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <!--<label asp-for="fechaCotizacion" class="control-label"></label>-->
                 <p><b>Fecha Cotización: </b></p>
@@ -67,10 +75,6 @@
         </form>
     </div>
 </div>
-
-<!--<div>
-    <a asp-action="Index">Volver a lista de cotizaciones</a>
-</div>-->
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
