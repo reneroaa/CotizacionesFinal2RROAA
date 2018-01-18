@@ -4,13 +4,17 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Detalles de cotizacion</h2>
+<h2 style="text-align:center">Detalle de cotizacion</h2>
 
 <style>
 table, th, td {
     border: 1px solid black;
 }
+th, td {
+    padding: 15px;
+}
 </style>
+
 <table style="width:100%" >
   <tr>
     <th>@Html.DisplayNameFor(model => model.nombreCliente)

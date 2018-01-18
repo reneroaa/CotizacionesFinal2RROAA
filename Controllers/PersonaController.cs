@@ -54,9 +54,7 @@ namespace Cotizaciones.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Rut,Nombre,Paterno,Materno")] Persona persona)
-        {
-
+        public async Task<IActionResult> Create([Bind("Rut,Nombre,Paterno,Materno")] Persona persona){
             var listaPersona = _context.Personas.Where(m => m.Rut == persona.Rut);
 
             if(listaPersona == null){
@@ -64,22 +62,20 @@ namespace Cotizaciones.Controllers
             }else
             {
                 int cant = listaPersona.Count();
-                if (listaPersona.Count() == 0)
-                {
-                    if (ModelState.IsValid)
-                        {
+                if (listaPersona.Count() == 0){
+                    if (ModelState.IsValid){
                             _context.Add(persona);
                             await _context.SaveChangesAsync();
                             return RedirectToAction(nameof(Index));
                      }
                     return View(persona);
                 }else{      
-                    //agregar popup de rut ya existe!             
-                    return RedirectToAction(nameof(Create));
+                    //agregar popup de rut ya existe!  
+                    ModelState.AddModelError("rut", "El Rut ingresado ya existe en el sistema!, intenta con otro Rut.");           
+                    //return RedirectToAction(nameof(Create));
+                    return View (persona);
+                    }
             }
-
-            }
-
 
         }
 

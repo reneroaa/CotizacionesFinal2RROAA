@@ -21,6 +21,7 @@ namespace Cotizaciones.Models
 
         public string Materno { get; set; } 
 
+
 	}
     
 }
