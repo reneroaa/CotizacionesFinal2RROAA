@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Cotizaciones.Services;
 
+
+//Controlador para obntención de cotizaciones
+
 namespace Cotizaciones.Controllers{
     public class ListaController : Controller{
         private readonly CotizacionesContext _context;

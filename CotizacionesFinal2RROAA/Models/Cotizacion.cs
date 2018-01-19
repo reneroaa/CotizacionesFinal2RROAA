@@ -16,6 +16,8 @@ namespace Cotizaciones.Models
     /// </remarks>
     public class Cotizacion
     {
+
+        //atributos de la clase cotización
         public int ID { get; set; }
         public string nombreCliente{get ; set; }
         public string descripcionCotizacion{get; set; }

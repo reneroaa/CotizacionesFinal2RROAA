@@ -11,8 +11,10 @@ namespace Cotizaciones.Models
     /// <summary>
     /// Clase que representa a una persona en el Sistema.
     /// </summary>
+	///Esta clase no permite null en sus atributos
     public class Persona
     {
+		//Atributos de la clase persona
         public String Rut { get; set; }
 
         public string Nombre { get; set; }
@@ -31,28 +33,51 @@ namespace Cotizaciones.Models
             return this;
         }
 
-        public bool validarRut(string rut ) {
-                    
-            bool validacion = false;
-            try {
-                rut =  rut.ToUpper();
-                rut = rut.Replace(".", "");
-                rut = rut.Replace("-", "");
-                int rutAux = int.Parse(rut.Substring(0, rut.Length - 1));
-        
-                char dv = char.Parse(rut.Substring(rut.Length - 1, 1));
-        
-                int m = 0, s = 1;
-                for (; rutAux != 0; rutAux /= 10) {
-                s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
-                }
-                if (dv == (char) (s != 0 ? s + 47 : 75)) {
-                validacion = true;
-                }
-            } catch (Exception) {
-            }
-            return validacion;
+
+/// <summary>
+	/// Metodo de validación de rut con digito verificador
+	/// dentro de la cadena
+	/// </summary>
+	/// <param name="rut">string</param>
+	/// <returns>booleano</returns>
+        public static Boolean validarRut(String rut){
+            rut = rut.Replace(".", "").ToUpper();
+		    Regex expresion = new Regex("^([0-9]+-[0-9K])$");
+		    string dv = rut.Substring(rut.Length - 1, 1);
+    		if (!expresion.IsMatch(rut)) {
+			return false;
+		}
+	    	char[] charCorte = { '-' };
+		    string[] rutTemp = rut.Split(charCorte);
+    		if (dv != Digito(int.Parse(rutTemp[0]))) {
+			return false;
+		}
+		return true;
         }
+
+        public static string Digito(int rut) {
+		int suma = 0;
+		int multiplicador = 1;
+		while (rut != 0) {
+			multiplicador++;
+			if (multiplicador == 8)
+			multiplicador = 2;
+			suma += (rut % 10) * multiplicador;
+			rut = rut / 10;
+		}
+		suma = 11 - (suma % 11);
+		if (suma == 11)	{
+			return "0";
+		} else if (suma == 10) {
+			return "K";
+		} else {
+			return suma.ToString();
+		}
+	}
+
+
+
+
 
 
 

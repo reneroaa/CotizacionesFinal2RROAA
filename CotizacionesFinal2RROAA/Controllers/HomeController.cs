@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Cotizaciones.Models;
 
+//Controlador para gestión de vistas a partir de "Home"
+//En este controlador se designa un namespace dentro del cuál se gestionan las vistas iniciales
+//incluídas en el proyecto (About, Contact y Index) para hacer los llamados correspondientes 
+//a cada una de estas desde layout principal 
+
 namespace Cotizaciones.Controllers
 {
     public class HomeController : Controller

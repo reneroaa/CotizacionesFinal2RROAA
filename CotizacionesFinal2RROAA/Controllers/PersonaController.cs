@@ -8,6 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using Cotizaciones.Data;
 using Cotizaciones.Models;
 
+//Controlador para la clase Persona
+//En este controlador se designa un namespace dentro del cuál se gestionan los elementos ingresados
+//manualmente a las vistas con la base de datos del sistema
+//
+//Se controlan gestión de datos entre vistas del modelo Persona (Index, create, delete, details, edit) y BD.
+// 
+
 namespace Cotizaciones.Controllers
 {
     public class PersonaController : Controller
@@ -55,27 +62,38 @@ namespace Cotizaciones.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Rut,Nombre,Paterno,Materno")] Persona persona){
-            var listaPersona = _context.Personas.Where(m => m.Rut == persona.Rut);
+            //var listaPersona = _context.Personas.Where(m => m.Rut == persona.Rut);
 
-            if(listaPersona == null){
-                return NotFound();
-            }else
-            {
-                int cant = listaPersona.Count();
-                if (listaPersona.Count() == 0){
-                    if (ModelState.IsValid){
-                            _context.Add(persona);
-                            await _context.SaveChangesAsync();
-                            return RedirectToAction(nameof(Index));
-                     }
-                    return View(persona);
-                }else{      
+            //if(listaPersona == null){
+              //  return NotFound();
+            //}else
+            //{
+              //  int cant = listaPersona.Count();
+                //if (listaPersona.Count() == 0){
+                  //  if (ModelState.IsValid){
+                    //        _context.Add(persona);
+                      //      await _context.SaveChangesAsync();
+                        //    return RedirectToAction(nameof(Index));
+                     //}
+                   // return View(persona);
+               // }else{      
                     //agregar popup de rut ya existe!  
-                    ModelState.AddModelError("rut", "El Rut ingresado ya existe en el sistema!, intenta con otro Rut.");           
+                 //   ModelState.AddModelError("rut", "El Rut ingresado ya existe en el sistema!, intenta con otro Rut.");           
                     //return RedirectToAction(nameof(Create));
-                    return View (persona);
-                    }
+                   // return View (persona);
+                   //}
+            //}
+
+            if (ModelState.IsValid)
+            {
+                if(Persona.validarRut(persona.Rut)){
+                    _context.Add(persona);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+                }
+                               
             }
+            return View(persona);
 
         }
 

@@ -8,6 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using Cotizaciones.Data;
 using Cotizaciones.Models;
 
+//Controlador para la clase Cotización
+//En este controlador se designa un namespace dentro del cuál se gestionan los elementos ingresados
+//manualmente a las vistas con la base de datos del sistema
+//
+//Se controlan gestión de datos entre vistas del modelo Cotización (Index, create, delete, details, edit) y BD.
+// 
 namespace Cotizaciones.Controllers
 {
     public class CotizacionController : Controller
@@ -48,7 +54,7 @@ namespace Cotizaciones.Controllers
         // GET: Cotizacion/Create
         public IActionResult Create()
         {
-            ViewData["PersonaRut"] = new SelectList(_context.Personas, "Rut", "Rut");
+            ViewData["PersonaRut"] = new SelectList(_context.Personas, "Nombre", "Rut");
             return View();
         }
 
@@ -67,12 +73,6 @@ namespace Cotizaciones.Controllers
             }
             ViewData["PersonaRut"] = new SelectList(_context.Personas, "Rut", "Rut", cotizacion.PersonaRut);
             return View(cotizacion);
-        }
-
-        //Metodo para dirigir desde cotización a vista PreCreate y elegir tipo de cliente [nuevo o antiguo en el sistema]
-        public IActionResult PreCreate(){
-            //var cotizacionesContext = _context.Cotizacion.Include(c => c.persona);
-            return View();
         }
 
         // GET: Cotizacion/Edit/5

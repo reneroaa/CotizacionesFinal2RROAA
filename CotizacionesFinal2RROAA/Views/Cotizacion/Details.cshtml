@@ -1,3 +1,6 @@
+
+<!--Formulario del model Cotización para desplegar detalle de una cotización-->
+
 @model Cotizaciones.Models.Cotizacion
 
 @{
@@ -35,7 +38,7 @@ th, td {
   <tr>
       <td><b>Rut Cliente : @Html.DisplayFor(model => model.persona.Rut)</b></td>
     <td><b>Nombre Cliente : @Html.DisplayFor(model => model.nombreCliente)</b></td> 
-    <td><b>Email Cliente : @Html.DisplayFor(model => model.estadoCotizacion)</b></td>
+    <td><b>Estado Cotización : @Html.DisplayFor(model => model.estadoCotizacion)</b></td>
   </tr>
 
 

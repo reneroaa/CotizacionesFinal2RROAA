@@ -1,3 +1,6 @@
+
+<!--Formulario del model Persona para crear una cotizacion-->
+
 @model Cotizaciones.Models.Persona
 
 @{
@@ -8,16 +11,25 @@
             
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-5">
         <form asp-action="Create" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <!--<label asp-for="Rut" class="control-label"></label>-->
+            <!--<div class="form-group">
                 <p><b>Rut cliente: </b> [ Formato: 12345678-9 sin guión ]</p>
                 <input type="text" id="rut" name="rut" required oninput="checkRut(this)" placeholder="Ingrese RUT" asp-for="Rut" class="form-control" />
                 <script src="~/js/validarRUT.js"></script>
                 <span asp-validation-for="Rut" class="text-danger"></span>
+            </div>-->
+
+            <div class="form-group">
+                <!-- <label asp-for="Rut" class="control-label"></label> -->
+                <p><b>Rut cliente: </b></p>
+                <p>[Con guión y digito verificador Ej:12345678-9]</p>
+                <input placeholder="Ingrese Rut" asp-for="Rut" class="form-control" />
+                <span asp-validation-for="Rut" class="text-danger"></span>
             </div>
+
+
             <div class="form-group">
                 <!--<label asp-for="Nombre" class="control-label"></label>-->
                 <p><b>Nombre cliente: </b></p>
@@ -41,6 +53,12 @@
             </div>
 
         </form>
+    </div>
+    <div class="col-md-5">
+        <br>
+        <br>
+        <br>
+       <img align="right" class="center-block" src="/images/nuevo.png" width=50% height=50%> 
     </div>
 </div>
 

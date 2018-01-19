@@ -1,3 +1,6 @@
+
+<!--Formulario del model Cotización para agregar una nueva cotización-->
+
 @model Cotizaciones.Models.Cotizacion
 
 @{
@@ -8,45 +11,30 @@
 
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="col-md-5">
+        <form asp-action="Create" onsubmit="validarForm()">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
                 <!--<label asp-for="PersonaRut" class="control-label"></label>-->
                 <p><b>Rut cliente: </b></p>
-                
-                <select asp-for="PersonaRut" class ="form-control" asp-items="ViewBag.PersonaRut" >
+                <select asp-for="nombreCliente" class ="form-control" asp-items="ViewBag.PersonaRut" required
+                id="ddlRut" onchange="elegirRutCliente()" >
                     <option value="0">Seleccione RUT</option>
                 </select>
             </div>
 
-             <a asp-action="Create" asp-controller="Persona">Agregar nuevo cliente</a>
-             
+            <a asp-action="Create" asp-controller="Persona">¿Cliente nuevo?, Agregalo aquí !</a>
+            
+
                 <!--NOTA: agregat table-->
             <div class="form-group">
+                <br/>
                 <!--<label asp-for="nombreCliente" class="control-label"></label>-->
-                <br>               
+                
                 <p><b>Nombre cliente: </b></p>
-                <input placeholder="Ingrese nombre " asp-for="nombreCliente" class="form-control" />
+                <input placeholder="Ingrese nombre " asp-for="PersonaRut" class="form-control" id="cliente"/>
                 <span asp-validation-for="nombreCliente" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <p><b>E-Mail: </b></p>
-                <input placeholder="Ingrese e-mail " asp-for="estadoCotizacion" class ="form-control" >
-                <span asp-validation-for="estadoCotizacion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <!--<label asp-for="fechaCotizacion" class="control-label"></label>-->
-                <p><b>Fecha Cotización: </b></p>
-                <input asp-for="fechaCotizacion" class="form-control" />
-                <span asp-validation-for="fechaCotizacion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <!--<label asp-for="fechaValidez" class="control-label"></label>-->
-                <p><b>Fecha de expiración: </b></p>
-                <input asp-for="fechaValidez" class="form-control" />
-                <span asp-validation-for="fechaValidez" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <!--<label asp-for="descripcionCotizacion" class="control-label"></label>-->
@@ -60,29 +48,62 @@
                 <input placeholder="Ingrese valor" asp-for="valorCotizacion" class="form-control" />
                 <span asp-validation-for="valorCotizacion" class="text-danger"></span>
             </div>
-            <!--<div class="form-group">
-                <label asp-for="estadoCotizacion" class="control-label"></label>
-                <p><b>Estado cotización: </b></p>
-                <input placeholder="Ingrese estado" asp-for="estadoCotizacion" class="form-control" />
-                <span asp-validation-for="estadoCotizacion" class="text-danger"></span>
-            </div>-->
-
-            <!--<div class="form-group">
-                <p><b>Estado cotización: </b></p>
-                <select class ="form-control" asp-for="estadoCotizacion">
-                    <option>Activa</option>
-                    <option>En proceso</option>
-                    <option>Finalizada</option>
-                </select>
-                <span asp-validation-for="estadoCotizacion" class="text-danger"></span>
-            </div>-->
 
             <div class="form-group">
-                <input type="submit" value="Crear nueva cotización" class="btn btn-default" />  |  <a asp-action="Index">Volver a lista </a>
+                <p><b>Estado cotización: </b></p>
+                <select class ="form-control" asp-for="estadoCotizacion">
+                    <!--<option>Seleccione un estado</option>-->
+                    <option>En progreso</option>
+                    <option>Completada</option>
+                    <option>Cancelada</option>
+                </select>
+                <span asp-validation-for="estadoCotizacion" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <!--<label asp-for="fechaCotizacion" class="control-label"></label>-->
+                <p><b>Fecha Cotización: </b></p>
+                <input asp-for="fechaCotizacion" class="form-control" />
+                <span asp-validation-for="fechaCotizacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <!--<label asp-for="fechaValidez" class="control-label"></label>-->
+                <p><b>Fecha de expiración: </b></p>
+                <input asp-for="fechaValidez" class="form-control" />
+                <span asp-validation-for="fechaValidez" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Crear nueva cotización" class="btn btn-default" />  |  
+                <a asp-action="Index">Volver a lista </a>
             </div>
         </form>
     </div>
+        <div class="col-md-5">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+       <img align="right" class="center-block" src="/images/nuevac.png" width=40% height=40%> 
+    </div>
 </div>
+
+<script type="text/javascript">
+    function elegirRutCliente(){
+        if(ddlRut.value == 0){
+            alert("Por favor seleccione un RUT");
+        }else{
+            document.getElementById("cliente").value = document.getElementById("ddlRut").value;
+        }
+    }
+
+    function validarForm(){
+        var rut = $("#ddlRut>option:selected").html()
+        document.getElementById("cliente").value =rut;
+    }
+</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

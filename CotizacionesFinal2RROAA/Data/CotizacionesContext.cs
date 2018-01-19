@@ -4,6 +4,9 @@ using System;
 using System.Data;
 using System.Linq;
 
+//CLase para la creación del contexto (ORM) de la aplicación
+//Se agregan listas de personas y cotizaciones para la gestion de OBJETOS.
+
 namespace Cotizaciones.Data {
     public class CotizacionesContext : DbContext
     {
