@@ -19,13 +19,33 @@
                     <option value="0">Seleccione RUT</option>
                 </select>
             </div>
+
+             <a asp-action="Create" asp-controller="Persona">Agregar nuevo cliente</a>
+             
                 <!--NOTA: agregat table-->
             <div class="form-group">
                 <!--<label asp-for="nombreCliente" class="control-label"></label>-->
-                
+                <br>               
                 <p><b>Nombre cliente: </b></p>
                 <input placeholder="Ingrese nombre " asp-for="nombreCliente" class="form-control" />
                 <span asp-validation-for="nombreCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <p><b>E-Mail: </b></p>
+                <input placeholder="Ingrese e-mail " asp-for="estadoCotizacion" class ="form-control" >
+                <span asp-validation-for="estadoCotizacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <!--<label asp-for="fechaCotizacion" class="control-label"></label>-->
+                <p><b>Fecha Cotización: </b></p>
+                <input asp-for="fechaCotizacion" class="form-control" />
+                <span asp-validation-for="fechaCotizacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <!--<label asp-for="fechaValidez" class="control-label"></label>-->
+                <p><b>Fecha de expiración: </b></p>
+                <input asp-for="fechaValidez" class="form-control" />
+                <span asp-validation-for="fechaValidez" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <!--<label asp-for="descripcionCotizacion" class="control-label"></label>-->
@@ -55,25 +75,6 @@
                 </select>
                 <span asp-validation-for="estadoCotizacion" class="text-danger"></span>
             </div>-->
-
-            <div class="form-group">
-                <p><b>E-Mail: </b></p>
-                <input asp-for="estadoCotizacion" class ="form-control" >
-                <span asp-validation-for="estadoCotizacion" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <!--<label asp-for="fechaCotizacion" class="control-label"></label>-->
-                <p><b>Fecha Cotización: </b></p>
-                <input asp-for="fechaCotizacion" class="form-control" />
-                <span asp-validation-for="fechaCotizacion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <!--<label asp-for="fechaValidez" class="control-label"></label>-->
-                <p><b>Fecha de expiración: </b></p>
-                <input asp-for="fechaValidez" class="form-control" />
-                <span asp-validation-for="fechaValidez" class="text-danger"></span>
-            </div>
 
             <div class="form-group">
                 <input type="submit" value="Crear nueva cotización" class="btn btn-default" />  |  <a asp-action="Index">Volver a lista </a>
