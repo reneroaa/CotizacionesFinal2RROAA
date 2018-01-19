@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/CotizacionesFinal2RROAA/bin/Debug/netcoreapp2.0/Cotizaciones.dll",
+            "program": "${workspaceFolder}/bin/Debug/netcoreapp2.0/Cotizaciones.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/CotizacionesFinal2RROAA",
+            "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
