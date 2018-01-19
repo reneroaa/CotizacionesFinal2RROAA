@@ -5,7 +5,7 @@
 }
 
 <br>
-<h2 style="text-align:center">Detalle de cotizacion</h2>
+
 
 <style>
 table, th, td {
@@ -16,102 +16,44 @@ th, td {
 }
 </style>
 <br>
+
+
+
 <table style="width:100%" >
   <tr>
-    <th>@Html.DisplayNameFor(model => model.nombreCliente)
-
-    </th>
-    <th>Lastname
-
-    </th> 
-    <th>Age
-
-    </th>
+    <th colspan="3"><h1 style="text-align:center">Detalle de Cotizacion</h1></th>
   </tr>
 
   <tr>
-    <td>@Html.DisplayFor(model => model.nombreCliente)
-
-    </td>
-    <td>Smith
-
-    </td> 
-    <td>50
-
-    </td>
+    <th colspan="3" style="text-align:left"><b>Fecha Cotización :</b> @Html.DisplayFor(model => model.fechaCotizacion)</th>
   </tr>
+
   <tr>
-    <td>Eve
-
-    </td>
-    <td>Jackson
-
-    </td> 
-    <td>94
-
-    </td>
+    <th colspan="3" style="text-align:left"><b>Fecha Validez:</b> @Html.DisplayFor(model => model.fechaValidez)</th>
   </tr>
-    <tr>
-    <td>a
 
-    </td>
-    <td>b
-
-    </td> 
-    <td>c
-
-    </td>
+  <tr>
+      <td><b>Rut Cliente : @Html.DisplayFor(model => model.persona.Rut)</b></td>
+    <td><b>Nombre Cliente : @Html.DisplayFor(model => model.nombreCliente)</b></td> 
+    <td><b>Email Cliente : @Html.DisplayFor(model => model.estadoCotizacion)</b></td>
   </tr>
+
+
+  <tr>
+    <th colspan="3"><b>Detalle Cotización: @Html.DisplayFor(model => model.descripcionCotizacion)</b></th>
+  </tr>
+
+  <tr>
+    <th colspan="3" style="text-align:right"><b>Valor : $ @Html.DisplayFor(model => model.valorCotizacion) CLP</b></th>
+  </tr
+
+   <tr>
+  </tr>
+  
+
 </table>
-
-
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombreCliente)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.nombreCliente)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.descripcionCotizacion)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.descripcionCotizacion)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.valorCotizacion)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.valorCotizacion)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.estadoCotizacion)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.estadoCotizacion)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.fechaCotizacion)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.fechaCotizacion)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.fechaValidez)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.fechaValidez)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.persona)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.persona.Rut)
-        </dd>
-    </dl>
-</div>
+<br>
+<br>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.ID">Editar cotizacion</a> |
     <a asp-action="Index">Volver a lista de cotizaciones</a>
